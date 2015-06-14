@@ -5,13 +5,13 @@
 #include <algorithm>
 
 int main() {
-	std::ofstream fout("../game/room_def.cpp");
-	std::ofstream hout("../game/room_def.h");
-	std::ofstream rout("../game/room_list.h");
+	std::ofstream fout("../cat_quest/room_def.cpp");
+	std::ofstream hout("../cat_quest/room_def.h");
+	std::ofstream rout("../cat_quest/room_list.h");
 	fout << "#include \"room.h\"\n";
 	int n = 0;
 	rout << "Room::Rooms Room::rm[] = {";
-	std::string str = "../game/level/" + std::to_string((long long) n) + ".bmp";
+	std::string str = "../cat_quest/level/" + std::to_string((long long) n) + ".bmp";
 	FILE *f;
 	while(f = fopen(str.c_str(), "r")) {
 		unsigned char info[54];
@@ -26,6 +26,7 @@ int main() {
 			data[i] = new unsigned char[size];
 			fread(data[i], sizeof(unsigned char), size, f);
 		}
+		fclose(f);
 		
 		hout << "static void r" << n << "();\n";
 		rout << (n != 0 ? "," : "") << "Room::r" << n;
@@ -69,6 +70,9 @@ int main() {
 				case 0x808080:
 					fout << "WallPass";
 					break;
+				case 0x0026FF:
+					fout << "Life";
+					break;
 				}
 
 				if(color != 0xFFFFFF) {
@@ -77,7 +81,7 @@ int main() {
 			}
 		}
 		fout << "}\n";
-		str = "../game/level/" + std::to_string((long long)++n) + ".bmp";
+		str = "../cat_quest/level/" + std::to_string((long long)++n) + ".bmp";
 		delete data;
 	}
 	rout << "};";
@@ -85,6 +89,6 @@ int main() {
 	rout.close();
 	hout.close();
 	fout.close();
-
+	delete f;
 	system("PAUSE");
 }

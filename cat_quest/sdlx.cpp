@@ -92,9 +92,36 @@ SDL_Point operator+(const SDL_Point& r, const SDL_Point& p) {
 	b.y = r.y + p.y;
 	return b;
 }
+SDL_Point operator+=(SDL_Point& r, const SDL_Point& p) {
+	r.x += p.x;
+	r.y += p.y;
+	return r;
+}
 SDL_Point operator-(const SDL_Point& r, const SDL_Point& p) {
 	SDL_Point b;
 	b.x = r.x - p.x;
 	b.y = r.y - p.y;
+	return b;
+}
+SDL_Point operator-=(SDL_Point& r, const SDL_Point& p) {
+	r.x -= p.x;
+	r.y -= p.y;
+	return r;
+}
+
+SDL_Point abs(const SDL_Point& r) {
+	SDL_Point b;
+	b.x = std::abs(r.x);
+	b.y = std::abs(r.y);
+	return b;
+}
+SDL_Point operator/(const SDL_Point& r, const SDL_Point& p) {
+	SDL_Point b = {1,1};
+	if(p.x != 0) {
+		b.x = r.x / p.x;
+	}
+	if(p.y != 0) {
+		b.y = r.y / p.y;
+	}
 	return b;
 }

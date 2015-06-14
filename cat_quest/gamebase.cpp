@@ -116,6 +116,8 @@ Sprite* Gamebase::addSprite(char* url, int x, int y) {
 	if(s->isOK()) {
 		sprites.push_back(s);
 		return s;
+	} else {
+		delete s;
 	}
 	return NULL;
 }
@@ -135,6 +137,8 @@ Font* Gamebase::addFont(char* url, int size) {
 	if(f->isOK()) {
 		fonts.push_back(f);
 		return f;
+	} else {
+		delete f;
 	}
 	return NULL;
 }
@@ -182,6 +186,8 @@ View* Gamebase::addView(int px, int py, int pw, int ph) {
 	if(v->isOK()) {
 		views.push_back(v);
 		return v;
+	} else {
+		delete v;
 	}
 	return NULL;
 }
@@ -209,6 +215,8 @@ Sound* Gamebase::addSound(char* url) {
 	if(s->isOK()) {
 		sounds.push_back(s);
 		return s;
+	} else {
+		delete s;
 	}
 	return NULL;
 }
@@ -228,6 +236,8 @@ Music* Gamebase::addMusic(char* url) {
 	if(m->isOK()) {
 		musics.push_back(m);
 		return m;
+	} else {
+		delete m;
 	}
 	return NULL;
 }

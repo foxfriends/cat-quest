@@ -120,6 +120,8 @@ T* Gamebase::addObject(int x, int y, Sprite* n) {
 	if(o->isOK()) {
 		objects.push_back(o);
 		return o;
+	} else {
+		delete o;
 	}
 	return NULL;
 }

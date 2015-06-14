@@ -95,8 +95,10 @@ void Player::step() {
 				}
 			}
 		}
-		pos.x += spd.x;
-		pos.y += spd.y;
+		pos += spd;
+		while(Gamebase::checkCollision<Wall>(this)) {
+			pos -= spd / abs(spd);
+		}
 		if (spd.x == 0) {
 			setAnim(0);
 		}
@@ -127,6 +129,11 @@ void Player::step() {
 				fish = 0;
 				lives++;
 			}
+		}
+
+		if (Gamebase::checkCollision<Life>(this)) {
+			Gamebase::removeObject(Gamebase::instCollision<Life>(this));
+			lives++;
 		}
 
 		EnemyBasic* enemybasic;
@@ -213,7 +220,7 @@ void Player::draw() {
 	SDL_Color black = {0, 0, 0, 255};
 	Draw::setColor(white);
 	Draw::text(32, 32, (char*)("Score: " + std::to_string((long long)score)).c_str(), Gamebase::getFont(0));
-	Draw::text(32, 64, (char*)("Lives: " + std::to_string((long long)lives)).c_str(), Gamebase::getFont(0));
+	Draw::text(32, 64, (char*)("Lives: " + std::to_string((long long)std::max(0, lives))).c_str(), Gamebase::getFont(0));
 	Draw::text(32, 96, (char*)("Fish: " + std::to_string((long long)fish)).c_str(), Gamebase::getFont(0));
 	Draw::setColor(black);
 }

@@ -28,10 +28,11 @@ int main(int argc, char* args[]) {
 			->addAnim("6,7,8,7", 5);
 		Gamebase::addSprite("sprite/fish.png");
 		Gamebase::addSprite("sprite/pass_wall.png");
+		Gamebase::addSprite("sprite/many_fish.png")->split(96, 32, 32);
 
 		Gamebase::addMusic("audio/carefree.wav");
 		Gamebase::getMusic(0)->play();
-		Room::go(-1);
+		Room::go(3);
 
 		while(game.isOK()) {
 			game.events();

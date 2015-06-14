@@ -13,5 +13,6 @@
 #include "wall_pass.h"
 #include "menu.h"
 #include "pause_menu.h"
+#include "life.h"
 
 #endif

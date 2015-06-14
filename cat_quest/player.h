@@ -7,10 +7,12 @@
 #include "goal.h"
 #include "spike.h"
 #include "fish.h"
+#include "life.h"
 #include "score.h"
 #include "enemy_basic.h"
 #include "enemy_flying_basic.h"
 #include "draw.h"
+#include "sdlx.h"
 #include <vector>
 #include <string>
 #include <stdio.h>

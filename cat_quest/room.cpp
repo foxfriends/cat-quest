@@ -16,6 +16,7 @@ void Room::prev() {
 
 void Room::go(int n) {
 	Gamebase::clearObjects();
+	Gamebase::clearInput();
 	Object::resetDepth();
 	c_room = n;
 	if (c_room == -1) {

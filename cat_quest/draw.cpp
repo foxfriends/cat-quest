@@ -51,6 +51,7 @@ void Draw::sprite(Sprite* spr, int n, int x, int y, int w, int h, double angle) 
 	}
 	SDL_RenderCopyEx(Gamebase::getRenderer(), spr->getTexture(), spr->getFrame(n), &((*dest) - (*view)), angle, spr->getOrigin(), SDL_FLIP_NONE);
 	delete dest;
+	delete view;
 }
 
 void Draw::rect(int x, int y, int w, int h, bool fill) {
@@ -84,8 +85,7 @@ void Draw::text(int x, int y, char* str, Font* font) {
 			SDL_Rect *dest = NULL;
 			if (tt == NULL) {
 				printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
-			}
-			else {
+			} else {
 				dest = new SDL_Rect();
 				dest->x = x;
 				dest->y = y;
