@@ -42,6 +42,26 @@ class Gamebase : public GameObject {
 	static bool ok;
 	static Object* paused;
 public:
+	enum audio {
+		jump,
+		die,
+		land,
+		life,
+		score
+	};
+	enum sprite {
+		player,
+		wall,
+		goal,
+		spike,
+		point,
+		dog,
+		bird,
+		fish,
+		pass_wall,
+		many_fish
+	};
+
 	Gamebase(int w = 640, int h = 480);
 	~Gamebase();
 

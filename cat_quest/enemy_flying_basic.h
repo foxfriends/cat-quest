@@ -11,7 +11,7 @@ private:
 	Danger* danger;
 	
 public:
-	EnemyFlyingBasic(int, int, Sprite* = Gamebase::getSprite(6));
+	EnemyFlyingBasic(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::bird));
 
 	void step();
 	void reverse();

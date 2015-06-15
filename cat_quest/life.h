@@ -6,7 +6,7 @@
 class Life : public Object {
 	int yy, dy, timer;
 public:
-	Life(int, int, Sprite* = Gamebase::getSprite(9));
+	Life(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::many_fish));
 
 	void step();
 	void draw();

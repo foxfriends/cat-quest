@@ -60,6 +60,7 @@ void Player::step() {
 			if (Gamebase::checkKeyPressed(SDL_SCANCODE_UP) && !Gamebase::checkCollision<Wall>(this, off)) {
 				spd.y = -10;
 				jumpTimer = 11 - (abs(spd.x) < 4) * 3;
+				Gamebase::getSound(Gamebase::audio::jump)->play();
 			}
 		} else {
 			if (!Gamebase::checkKey(SDL_SCANCODE_UP) || jumpTimer == 0) {
@@ -82,14 +83,13 @@ void Player::step() {
 					if (spd.y > 0) {
 						pos.y = wall->getY() - bbox.h;
 						enemy_score_mult = 1;
-					}
-					else if (spd.y < 0) {
+						Gamebase::getSound(Gamebase::audio::land)->play();
+					} else if (spd.y < 0) {
 						pos.y = wall->getY() + wall->getH();
 					}
 					spd.y = 0;
 					jumpTimer = 0;
-				}
-				else if (pos.y + spd.y > Room::h * TILE_SIZE) {
+				} else if (pos.y + spd.y > Room::h * TILE_SIZE) {
 					die();
 					return;
 				}
@@ -128,12 +128,16 @@ void Player::step() {
 			if (fish == 100) {
 				fish = 0;
 				lives++;
+				Gamebase::getSound(Gamebase::audio::life)->play();
+			} else {
+				Gamebase::getSound(Gamebase::audio::score)->play();
 			}
 		}
 
 		if (Gamebase::checkCollision<Life>(this)) {
 			Gamebase::removeObject(Gamebase::instCollision<Life>(this));
 			lives++;
+			Gamebase::getSound(Gamebase::audio::life)->play();
 		}
 
 		EnemyBasic* enemybasic;
@@ -144,8 +148,10 @@ void Player::step() {
 				score += 50 * enemy_score_mult++;
 			} else {
 				lives++;
+				Gamebase::getSound(Gamebase::audio::life)->play();
 			}
 			enemybasic->die();
+			Gamebase::getSound(Gamebase::audio::jump)->play();
 		}
 		EnemyFlyingBasic* enemyflyingbasic;
 		while ((enemyflyingbasic = Gamebase::instCollision<EnemyFlyingBasic>(this)) != NULL) {
@@ -155,8 +161,10 @@ void Player::step() {
 				score += 50 * enemy_score_mult++;
 			} else {
 				lives++;
+				Gamebase::getSound(Gamebase::audio::life)->play();
 			}
 			enemyflyingbasic->die();
+			Gamebase::getSound(Gamebase::audio::jump)->play();
 		}
 
 		std::vector<Goal*> goal = Gamebase::getObjects<Goal>();
@@ -185,15 +193,12 @@ void Player::step() {
 			return;
 		}
 	}
-	if (Gamebase::checkKeyPressed(SDL_SCANCODE_P) || Gamebase::checkKeyPressed(SDL_SCANCODE_ESCAPE)) {
-		Gamebase::pause();
-		Gamebase::clearInput();
-	}
 }
 
 void Player::die() {
 	lives--;
 	dead = true;
+	Gamebase::getSound(Gamebase::audio::die)->play();
 }
 
 void Player::catchView() {

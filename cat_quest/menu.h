@@ -8,7 +8,7 @@
 class Menu : public Object {
 	int c_opt;
 public:
-	Menu(int, int, Sprite* = Gamebase::getSprite(4));
+	Menu(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::point));
 
 	void step();
 	void draw();

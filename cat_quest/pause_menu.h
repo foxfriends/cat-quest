@@ -8,7 +8,7 @@
 class PauseMenu : public Object {
 	int c_opt;
 public:
-	PauseMenu(int, int, Sprite* = Gamebase::getSprite(4));
+	PauseMenu(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::point));
 
 	void step();
 	void draw();

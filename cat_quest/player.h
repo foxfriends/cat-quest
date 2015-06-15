@@ -23,7 +23,7 @@ private:
 	static int score, lives, fish;
 	bool dead;
 public:
-	Player(int, int, Sprite* = Gamebase::getSprite(0));
+	Player(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::player));
 
 	static void resetLives();
 

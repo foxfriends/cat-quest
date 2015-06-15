@@ -3,6 +3,7 @@
 int Sound::channelCount = 0;
 
 Sound::Sound(char* url) {
+	track = NULL;
 	change(url);
 }
 Sound::~Sound() {
@@ -21,13 +22,12 @@ void Sound::change(char* url) {
 		printf("Failed to load sound effect (%s)! SDL_mixer Error: %s\n", url, Mix_GetError());
 		ok = false;
 	} else {
-		channel = channelCount;
-		channelCount++;
+		channel = channelCount++;
 		ok = true;
 	}
 }
 void Sound::play() {
-	Mix_PlayChannel(-1, track, channel);
+	Mix_PlayChannel(channel, track, 0);
 }
 void Sound::stop() {
 	Mix_HaltChannel(channel);

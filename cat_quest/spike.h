@@ -8,7 +8,7 @@ class Spike : public Object {
 private:
 	Danger* danger;
 public:
-	Spike(int, int, Sprite* = Gamebase::getSprite(3));
+	Spike(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::spike));
 };
 
 #endif

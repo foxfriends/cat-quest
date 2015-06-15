@@ -6,7 +6,7 @@
 class Danger : public Object {
 	friend class EnemyBasic;
 public:
-	Danger(int, int, Sprite* = Gamebase::getSprite(4));
+	Danger(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::point));
 	void move(int, int);
 };
 

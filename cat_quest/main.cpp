@@ -31,6 +31,11 @@ int main(int argc, char* args[]) {
 		Gamebase::addSprite("sprite/many_fish.png")->split(96, 32, 32);
 
 		Gamebase::addMusic("audio/carefree.wav");
+		Gamebase::addSound("audio/jump.wav");
+		Gamebase::addSound("audio/die.wav");
+		Gamebase::addSound("audio/land.wav");
+		Gamebase::addSound("audio/life.wav");
+		Gamebase::addSound("audio/fish.wav");
 		Gamebase::getMusic(0)->play();
 		Room::go(3);
 

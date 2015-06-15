@@ -8,7 +8,7 @@ class WallPass : public Object {
 private:
 	Object* wall;
 public:
-	WallPass(int, int, Sprite* = Gamebase::getSprite(8));
+	WallPass(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::pass_wall));
 	~WallPass();
 	void step();
 };

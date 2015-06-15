@@ -6,7 +6,7 @@
 
 class Goal : public Object {
 public:
-	Goal(int, int, Sprite* = Gamebase::getSprite(2));
+	Goal(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::goal));
 };
 
 #endif

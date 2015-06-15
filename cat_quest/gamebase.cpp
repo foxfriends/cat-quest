@@ -283,6 +283,10 @@ void Gamebase::events() {
 			keys_p[i] = 2;
 		}
 	}
+	if ((Gamebase::checkKeyPressed(SDL_SCANCODE_P) || Gamebase::checkKeyPressed(SDL_SCANCODE_ESCAPE)) && Room::c_room != -1) {
+		Gamebase::pause();
+		Gamebase::clearInput();
+	}
 }
 
 void Gamebase::runObjects() {

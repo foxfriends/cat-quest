@@ -6,7 +6,7 @@
 class Fish : public Object {
 	int yy, dy, timer;
 public:
-	Fish(int, int, Sprite* = Gamebase::getSprite(7));
+	Fish(int, int, Sprite* = Gamebase::getSprite(Gamebase::sprite::fish));
 
 	void step();
 	void draw();
