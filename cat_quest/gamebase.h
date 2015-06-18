@@ -59,7 +59,8 @@ public:
 		bird,
 		fish,
 		pass_wall,
-		many_fish
+		many_fish,
+		frog
 	};
 
 	Gamebase(int w = 640, int h = 480);

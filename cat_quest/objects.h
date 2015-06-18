@@ -14,5 +14,6 @@
 #include "menu.h"
 #include "pause_menu.h"
 #include "life.h"
+#include "enemy_jump.h"
 
 #endif

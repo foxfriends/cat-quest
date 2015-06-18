@@ -88,6 +88,8 @@ void Object::draw() {
 			if (anim != NULL) {
 				anim->run(image_index);
 				frame = anim->get(image_index);
+			} else {
+				frame = image_index;
 			}
 			sprite->colorMod(image_blend);
 			sprite->alphaMod(image_alpha);

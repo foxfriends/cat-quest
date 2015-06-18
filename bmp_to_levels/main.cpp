@@ -73,6 +73,9 @@ int main() {
 				case 0x0026FF:
 					fout << "Life";
 					break;
+				case 0xFF6A00:
+					fout << "EnemyJump";
+					break;
 				}
 
 				if(color != 0xFFFFFF) {

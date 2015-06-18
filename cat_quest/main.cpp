@@ -29,6 +29,7 @@ int main(int argc, char* args[]) {
 		Gamebase::addSprite("sprite/fish.png");
 		Gamebase::addSprite("sprite/pass_wall.png");
 		Gamebase::addSprite("sprite/many_fish.png")->split(96, 32, 32);
+		Gamebase::addSprite("sprite/animals.png")->split(3, 32, 32, 192, 127, 0, 0, 3);
 
 		Gamebase::addMusic("audio/carefree.wav");
 		Gamebase::addSound("audio/jump.wav");
@@ -37,7 +38,7 @@ int main(int argc, char* args[]) {
 		Gamebase::addSound("audio/life.wav");
 		Gamebase::addSound("audio/fish.wav");
 		Gamebase::getMusic(0)->play();
-		Room::go(3);
+		Room::go(4);
 
 		while(game.isOK()) {
 			game.events();

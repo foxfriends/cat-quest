@@ -140,32 +140,9 @@ void Player::step() {
 			Gamebase::getSound(Gamebase::audio::life)->play();
 		}
 
-		EnemyBasic* enemybasic;
-		while ((enemybasic = Gamebase::instCollision<EnemyBasic>(this)) != NULL) {
-			spd.y = -8 - (4 * Gamebase::checkKey(SDL_SCANCODE_UP));
-			if (enemy_score_mult < 8) {
-				Gamebase::addObject<Score>(pos.x + bbox.w / 2, pos.y)->setScore(50 * enemy_score_mult);
-				score += 50 * enemy_score_mult++;
-			} else {
-				lives++;
-				Gamebase::getSound(Gamebase::audio::life)->play();
-			}
-			enemybasic->die();
-			Gamebase::getSound(Gamebase::audio::jump)->play();
-		}
-		EnemyFlyingBasic* enemyflyingbasic;
-		while ((enemyflyingbasic = Gamebase::instCollision<EnemyFlyingBasic>(this)) != NULL) {
-			spd.y = -8 - (4 * Gamebase::checkKey(SDL_SCANCODE_UP));
-			if (enemy_score_mult < 8) {
-				Gamebase::addObject<Score>(pos.x + bbox.w / 2, pos.y)->setScore(50 * enemy_score_mult);
-				score += 50 * enemy_score_mult++;
-			} else {
-				lives++;
-				Gamebase::getSound(Gamebase::audio::life)->play();
-			}
-			enemyflyingbasic->die();
-			Gamebase::getSound(Gamebase::audio::jump)->play();
-		}
+		killEnemies<EnemyBasic>();
+		killEnemies<EnemyFlyingBasic>();
+		killEnemies<EnemyJump>();
 
 		std::vector<Goal*> goal = Gamebase::getObjects<Goal>();
 		if (goal.size() > 0) {
