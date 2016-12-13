@@ -4,6 +4,9 @@
 *.o
 *.obj
 
+# make dependencies
+*.d
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -88,3 +91,6 @@ $RECYCLE.BIN/
 *.sln
 *.res
 *.sdf
+
+# the executable
+catquest
