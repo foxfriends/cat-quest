@@ -111,7 +111,7 @@ void Gamebase::clearInput() {
 	}
 }
 
-Sprite* Gamebase::addSprite(char* url, int x, int y) {
+Sprite* Gamebase::addSprite(std::string url, int x, int y) {
 	Sprite* s = new Sprite(url, x, y);
 	if(s->isOK()) {
 		sprites.push_back(s);
@@ -121,7 +121,7 @@ Sprite* Gamebase::addSprite(char* url, int x, int y) {
 	}
 	return NULL;
 }
-void Gamebase::changeSprite(int i, char* url) {
+void Gamebase::changeSprite(int i, std::string url) {
 	sprites[i]->change(url);
 }
 void Gamebase::removeSprite(int i) {
@@ -132,7 +132,7 @@ Sprite* Gamebase::getSprite(int i) {
 	return sprites[i];
 }
 
-Font* Gamebase::addFont(char* url, int size) {
+Font* Gamebase::addFont(std::string url, int size) {
 	Font* f = new Font(url, size);
 	if(f->isOK()) {
 		fonts.push_back(f);
@@ -142,7 +142,7 @@ Font* Gamebase::addFont(char* url, int size) {
 	}
 	return NULL;
 }
-void Gamebase::changeFont(int i, char* url, int size) {
+void Gamebase::changeFont(int i, std::string url, int size) {
 	fonts[i]->change(url, size);
 }
 void Gamebase::removeFont(int i) {
@@ -210,7 +210,7 @@ void Gamebase::moveView(int v, int x, int y) {
 	views[v]->set_viewy(y);
 }
 
-Sound* Gamebase::addSound(char* url) {
+Sound* Gamebase::addSound(std::string url) {
 	Sound* s = new Sound(url);
 	if(s->isOK()) {
 		sounds.push_back(s);
@@ -220,7 +220,7 @@ Sound* Gamebase::addSound(char* url) {
 	}
 	return NULL;
 }
-void Gamebase::changeSound(int i, char* url) {
+void Gamebase::changeSound(int i, std::string url) {
 	sounds[i]->change(url);
 }
 void Gamebase::removeSound(int i) {
@@ -231,7 +231,7 @@ Sound* Gamebase::getSound(int i) {
 	return sounds[i];
 }
 
-Music* Gamebase::addMusic(char* url) {
+Music* Gamebase::addMusic(std::string url) {
 	Music* m = new Music(url);
 	if(m->isOK()) {
 		musics.push_back(m);
@@ -241,7 +241,7 @@ Music* Gamebase::addMusic(char* url) {
 	}
 	return NULL;
 }
-void Gamebase::changeMusic(int i, char* url) {
+void Gamebase::changeMusic(int i, std::string url) {
 	musics[i]->change(url);
 }
 void Gamebase::removeMusic(int i) {

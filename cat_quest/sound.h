@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <stdio.h>
+#include <string>
 #include "gameobject.h"
 
 class Sound : public GameObject {
@@ -11,9 +12,9 @@ class Sound : public GameObject {
 	int channel;
 	static int channelCount;
 public:
-	Sound(char*);
+	Sound(std::string);
 	~Sound();
-	void change(char*);
+	void change(std::string);
 	void free();
 
 	void play();
@@ -23,9 +24,9 @@ public:
 class Music : public GameObject {
 	Mix_Music* track;
 public:
-	Music(char*);
+	Music(std::string);
 	~Music();
-	void change(char*);
+	void change(std::string);
 	void free();
 
 	void play();

@@ -3,18 +3,19 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <string>
 #include <stdio.h>
 #include "gameobject.h"
 
 class Font : public GameObject {
 	TTF_Font *font;
 public:
-	Font(char*, int);
+	Font(std::string, int);
 	~Font();
 	TTF_Font* getFont();
 
 	void free();
-	void change(char*, int);
+	void change(std::string, int);
 };
 
 #endif

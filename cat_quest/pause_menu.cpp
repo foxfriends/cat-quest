@@ -1,3 +1,4 @@
+#include <string>
 #include "pause_menu.h"
 
 PauseMenu::PauseMenu(int x, int y, Sprite* spr) {

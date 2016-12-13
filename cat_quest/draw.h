@@ -19,7 +19,7 @@ struct Draw {
 	static void rect(SDL_Rect, bool = false);
 	static void line(int, int, int, int);
 	static void point(int, int);
-	static void text(int, int, char*, Font*);
+	static void text(int, int, std::string, Font*);
 	static void clear(int = 255, int = 255, int = 255);
 };
 

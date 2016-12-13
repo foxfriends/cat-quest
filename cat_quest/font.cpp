@@ -1,6 +1,6 @@
 #include "font.h"
 
-Font::Font(char* url, int size) {
+Font::Font(std::string url, int size) {
 	font = NULL;
 	change(url, size);
 }
@@ -15,9 +15,9 @@ void Font::free() {
 	}
 }
 
-void Font::change(char* url, int size) {
+void Font::change(std::string url, int size) {
 	free();
-	font = TTF_OpenFont(url, size);
+	font = TTF_OpenFont(url.c_str(), size);
 	if(font == NULL) {
 		printf( "Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError() );
 		ok = false;

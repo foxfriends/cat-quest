@@ -1,4 +1,5 @@
 #include "game.h"
+#include <string>
 
 int main(int argc, char* args[]) {
 	Gamebase game(1024, 640);
@@ -44,7 +45,7 @@ int main(int argc, char* args[]) {
 			game.events();
 
 			game.runObjects();
-			
+
 			Draw::clear(0x55, 0xB4, 0xFF);
 			game.draw();
 			game.refresh();

@@ -24,5 +24,5 @@ void Life::step() {
 void Life::draw() {
 	SDL_Point off = { 0, yy };
 	SDL_Rect wh = { 0, 0, sprite->getWidth(), sprite->getHeight() };
-	sprite->draw_ext(19, (wh | pos + off) * image_scale, image_angle);
+	sprite->draw_ext(19, ((wh | pos) + off) * image_scale, image_angle);
 }

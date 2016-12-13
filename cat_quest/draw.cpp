@@ -49,7 +49,8 @@ void Draw::sprite(Sprite* spr, int n, int x, int y, int w, int h, double angle) 
 		view->x = 0;
 		view->y = 0;
 	}
-	SDL_RenderCopyEx(Gamebase::getRenderer(), spr->getTexture(), spr->getFrame(n), &((*dest) - (*view)), angle, spr->getOrigin(), SDL_FLIP_NONE);
+    SDL_Rect dd = ((*dest) - (*view));
+	SDL_RenderCopyEx(Gamebase::getRenderer(), spr->getTexture(), spr->getFrame(n), &dd, angle, spr->getOrigin(), SDL_FLIP_NONE);
 	delete dest;
 	delete view;
 }
@@ -75,9 +76,9 @@ void Draw::line(int x1, int y1, int x2, int y2) {
 void Draw::point(int x, int y) {
 	SDL_RenderDrawPoint(Gamebase::getRenderer(), x, y);
 }
-void Draw::text(int x, int y, char* str, Font* font) {
-	SDL_Surface* ts = TTF_RenderText_Solid(font->getFont(), str, c_color);
-	if(ts == NULL) { 
+void Draw::text(int x, int y, std::string str, Font* font) {
+	SDL_Surface* ts = TTF_RenderText_Solid(font->getFont(), str.c_str(), c_color);
+	if(ts == NULL) {
 		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
 	} else {
 		if (Gamebase::getRenderer() != NULL) {

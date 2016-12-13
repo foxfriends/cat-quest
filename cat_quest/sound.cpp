@@ -2,7 +2,7 @@
 
 int Sound::channelCount = 0;
 
-Sound::Sound(char* url) {
+Sound::Sound(std::string url) {
 	track = NULL;
 	change(url);
 }
@@ -15,11 +15,11 @@ void Sound::free() {
 		track = NULL;
 	}
 }
-void Sound::change(char* url) {
+void Sound::change(std::string url) {
 	free();
-	track = Mix_LoadWAV(url);
+	track = Mix_LoadWAV(url.c_str());
 	if(track == NULL) {
-		printf("Failed to load sound effect (%s)! SDL_mixer Error: %s\n", url, Mix_GetError());
+		printf("Failed to load sound effect (%s)! SDL_mixer Error: %s\n", url.c_str(), Mix_GetError());
 		ok = false;
 	} else {
 		channel = channelCount++;
@@ -33,7 +33,7 @@ void Sound::stop() {
 	Mix_HaltChannel(channel);
 }
 
-Music::Music(char* url) {
+Music::Music(std::string url) {
 	track = NULL;
 	change(url);
 }
@@ -41,7 +41,7 @@ Music::~Music() {
 	free();
 }
 void Music::free() {
-	if(track != NULL) { 
+	if(track != NULL) {
 		Mix_FreeMusic(track);
 		track = NULL;
 	}
@@ -49,11 +49,11 @@ void Music::free() {
 void Music::play() {
 	Mix_PlayMusic(track, -1);
 }
-void Music::change(char* url) {
+void Music::change(std::string url) {
 	free();
-	track = Mix_LoadMUS(url);
+	track = Mix_LoadMUS(url.c_str());
 	if(track == NULL) {
-		printf("Failed to load music (%s)! SDL_mixer Error: %s\n", url, Mix_GetError());
+		printf("Failed to load music (%s)! SDL_mixer Error: %s\n", url.c_str(), Mix_GetError());
 		ok = false;
 	} else {
 		ok = true;

@@ -1,3 +1,4 @@
+#include <string>
 #include "menu.h"
 
 Menu::Menu(int x, int y, Sprite* spr) {

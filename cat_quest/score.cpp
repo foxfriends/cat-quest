@@ -1,3 +1,4 @@
+#include <string>
 #include "score.h"
 
 Score::Score(int x, int y, Sprite* spr) {

@@ -201,8 +201,8 @@ void Player::draw() {
 	SDL_Color white = {255, 255, 255, 255};
 	SDL_Color black = {0, 0, 0, 255};
 	Draw::setColor(white);
-	Draw::text(32, 32, (char*)("Score: " + std::to_string((long long)score)).c_str(), Gamebase::getFont(0));
-	Draw::text(32, 64, (char*)("Lives: " + std::to_string((long long)std::max(0, lives))).c_str(), Gamebase::getFont(0));
-	Draw::text(32, 96, (char*)("Fish: " + std::to_string((long long)fish)).c_str(), Gamebase::getFont(0));
+	Draw::text(32, 32, ("Score: " + std::to_string((long long)score)), Gamebase::getFont(0));
+	Draw::text(32, 64, ("Lives: " + std::to_string((long long)std::max(0, lives))), Gamebase::getFont(0));
+	Draw::text(32, 96, ("Fish: " + std::to_string((long long)fish)), Gamebase::getFont(0));
 	Draw::setColor(black);
 }

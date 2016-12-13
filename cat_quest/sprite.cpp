@@ -2,7 +2,7 @@
 #include "gamebase.h"
 #include "draw.h"
 
-Sprite::Sprite(char* url, int x, int y) {
+Sprite::Sprite(std::string url, int x, int y) {
 	texture = NULL;
 	width = 0;
 	height = 0;
@@ -27,17 +27,17 @@ void Sprite::free() {
 		origin->y = 0;
 	}
 }
-void Sprite::change(char* url, int x, int y) {
+void Sprite::change(std::string url, int x, int y) {
 	free();
-	SDL_Surface* temp = IMG_Load(url);
+	SDL_Surface* temp = IMG_Load(url.c_str());
 	ok = false;
 	if(temp == NULL) {
-		printf( "Unable to load image %s! SDL_image Error: %s\n", url, IMG_GetError() );
+		printf( "Unable to load image %s! SDL_image Error: %s\n", url.c_str(), IMG_GetError() );
 	} else {
 		SDL_SetColorKey(temp, SDL_TRUE, SDL_MapRGB(temp->format, 0xFF, 0xFF, 0xFF ));
 		texture = SDL_CreateTextureFromSurface(Gamebase::getRenderer(), temp);
 		if(texture == NULL) {
-			printf( "Unable to create texture from %s! SDL Error: %s\n", url, SDL_GetError() );
+			printf( "Unable to create texture from %s! SDL Error: %s\n", url.c_str(), SDL_GetError() );
 		} else {
 			setBlendMode(SDL_BLENDMODE_BLEND);
 			width = temp->w;

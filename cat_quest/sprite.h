@@ -18,10 +18,10 @@ class Sprite : public GameObject {
 	int height;
 	SDL_Point* origin;
 public:
-	Sprite(char* url = "", int = 0, int = 0);
-	~Sprite();
+	Sprite(std::string url = "", int = 0, int = 0);
+	virtual ~Sprite();
 	void free();
-	void change(char*, int = 0, int = 0);
+	void change(std::string, int = 0, int = 0);
 	Sprite* split(int, int, int, int = 0, int = 0, int = 0, int = 0, int = -1);
 
 	void draw(int, int, int, int = -1, int = -1);

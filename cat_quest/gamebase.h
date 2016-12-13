@@ -80,17 +80,17 @@ public:
 	static T* instCollision(Object*, SDL_Point, T* = NULL, bool = false);
 	template<class T>
 	static T* instCollision(Object*, bool = false);
-	
-	static Sprite* addSprite(char*, int = 0, int = 0);
-	static void changeSprite(int, char*);
+
+	static Sprite* addSprite(std::string, int = 0, int = 0);
+	static void changeSprite(int, std::string);
 	static void removeSprite(int);
 	static Sprite* getSprite(int);
 
-	static Font* addFont(char*, int);
-	static void changeFont(int, char*, int);
+	static Font* addFont(std::string, int);
+	static void changeFont(int, std::string, int);
 	static void removeFont(int);
 	static Font* getFont(int);
-	
+
 	template<class T>
 	static T* addObject(int, int, Sprite* = NULL);
 	static void removeObject(int);
@@ -99,7 +99,7 @@ public:
 	static Object* getObject(int);
 	template<class T>
 	static std::vector<T*> getObjects();
-	
+
 	static View* addView(int, int, int, int);
 	static void removeView(int);
 	static View* getView(int);
@@ -107,18 +107,18 @@ public:
 	static int currentView();
 	static void moveView(int, int, int);
 
-	static Sound* addSound(char*);
-	static void changeSound(int, char*);
+	static Sound* addSound(std::string);
+	static void changeSound(int, std::string);
 	static void removeSound(int);
 	static Sound* getSound(int);
 
-	static Music* addMusic(char*);
-	static void changeMusic(int, char*);
+	static Music* addMusic(std::string);
+	static void changeMusic(int, std::string);
 	static void removeMusic(int);
 	static Music* getMusic(int);
 
 	static bool on_screen(Object*, int extra = 0);
-	
+
 	static void roomStart();
 	void events();
 	void runObjects();
