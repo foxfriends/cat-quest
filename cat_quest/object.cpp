@@ -37,11 +37,11 @@ Object::Object(Sprite* n, int x, int y) {
 	init(x, y);
 }
 Object::~Object() {
-	if(anim_index != NULL) {
+	if(anim_index != 0) {
 		delete anim;
 	}
-	sprite = NULL;
-	anim_index = NULL;
+	sprite = nullptr;
+	anim_index = 0;
 }
 
 void Object::init(int x, int y) {
