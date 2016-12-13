@@ -14,7 +14,7 @@ struct Draw {
 	static void setColor(SDL_Color);
 
 	static void sprite_sheet(Sprite*, int, int, int = -1, int = -1);
-	static void sprite(Sprite*, int, int, int, int = -1, int = -1, double = 0);
+	static void sprite(Sprite*, int, int, int, int, int, double = 0);
 	static void rect(int, int, int, int, bool = false);
 	static void rect(SDL_Rect, bool = false);
 	static void line(int, int, int, int);

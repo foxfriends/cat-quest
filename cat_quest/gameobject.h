@@ -3,7 +3,7 @@
 
 class GameObject {
 protected:
-	bool ok;
+	bool ok = true;
 public:
     virtual ~GameObject() {}
 	virtual bool isOK();

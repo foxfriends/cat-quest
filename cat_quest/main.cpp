@@ -39,7 +39,8 @@ int main(int argc, char* args[]) {
 		Gamebase::addSound("audio/life.wav");
 		Gamebase::addSound("audio/fish.wav");
 		Gamebase::getMusic(0)->play();
-		Room::go(4);
+
+		Room::go(-1);
 
 		while(game.isOK()) {
 			game.events();

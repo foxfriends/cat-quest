@@ -57,8 +57,8 @@ void Object::init(int x, int y) {
 	anim_index = -1;
 	anim = NULL;
 	image_blend[0] = 255;
-	image_blend[0] = 255;
-	image_blend[0] = 255;
+	image_blend[1] = 255;
+	image_blend[2] = 255;
 	image_alpha = 255;
 	image_angle = 0;
 	image_scale.x = 1;

@@ -30,13 +30,17 @@ void Draw::sprite_sheet(Sprite* spr, int x, int y, int w, int h) {
 	delete dest;
 }
 void Draw::sprite(Sprite* spr, int n, int x, int y, int w, int h, double angle) {
+    SDL_RendererFlip
+        flip = (SDL_RendererFlip)
+                ((w < 0 ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE) |
+                (h < 0 ? SDL_FLIP_VERTICAL : SDL_FLIP_NONE));
 	SDL_Rect* dest = new SDL_Rect(*spr->getFrame(n));
 	dest->x = x - spr->getOrigin()->x;
 	dest->y = y - spr->getOrigin()->y;
-	if(w != -1) {
-		dest->w = w;
-		dest->h = h;
-	}
+	// if(w != -1) {
+		dest->w = std::abs(w);
+		dest->h = std::abs(h);
+	// }
 
 	SDL_Rect * view = new SDL_Rect();
 	int v = Gamebase::currentView();
@@ -50,7 +54,7 @@ void Draw::sprite(Sprite* spr, int n, int x, int y, int w, int h, double angle) 
 		view->y = 0;
 	}
     SDL_Rect dd = ((*dest) - (*view));
-	SDL_RenderCopyEx(Gamebase::getRenderer(), spr->getTexture(), spr->getFrame(n), &dd, angle, spr->getOrigin(), SDL_FLIP_NONE);
+	SDL_RenderCopyEx(Gamebase::getRenderer(), spr->getTexture(), spr->getFrame(n), &dd, angle, spr->getOrigin(), flip);
 	delete dest;
 	delete view;
 }
